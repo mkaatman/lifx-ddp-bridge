@@ -91,8 +91,8 @@ const config = {
     discoverEveryMs: 30000,     // re-find bulbs by MAC (handles DHCP changes / rejoin)
     broadcast: ['255.255.255.255', '192.168.2.255'],
     controlPixel: __CTRL__,     // mode select: black = solid, blue-dominant = starfield, other = flame
-    matrixBudget: 250,          // HARD CAP: Set64 msgs/sec across all candles (2.4 GHz airtime!
-                                // ~300+/s wedged the EAP787 on 2026-11-23)
+    sendBudget: 250,            // HARD CAP: colour msgs/sec across ALL bulbs, every mode (2.4 GHz
+                                // airtime! ~300+/s wedged the EAP787 on 2026-11-23)
     flame: {
         fps: 10,        // flame render rate (per candle) -> ~210 msgs/s for 21 candles
         flicker: 0.45,  // 0..1 flicker depth, strongest at the tip
@@ -214,6 +214,7 @@ function out(s, buf) { if (s.ip) sock.send(buf, config.port, s.ip); }
 function flush(s) {
     s.timer = null;
     if (!s.pending || s.g.released) { s.pending = null; return; }
+    if (!take()) { s.timer = setTimeout(() => flush(s), 20); return; }   // over budget: retry, latest frame wins
     const c = s.pending; s.pending = null;
     s.last = c; s.lastSent = Date.now();
     out(s, setColor(s, toHsbk(...c), config.smoothMs));
@@ -251,11 +252,11 @@ function renderFlame() {
     }
 }
 
-// ---------------- shared airtime budget for matrix (Set64) messages ----------------
-const budget = { tokens: config.matrixBudget / 10, t: Date.now() };
+// ---------------- shared airtime budget for ALL colour messages (SetColor + Set64) ----------------
+const budget = { tokens: config.sendBudget / 10, t: Date.now() };
 function take() {
     const now = Date.now();
-    budget.tokens = Math.min(config.matrixBudget / 10, budget.tokens + (now - budget.t) * config.matrixBudget / 1000);
+    budget.tokens = Math.min(config.sendBudget / 10, budget.tokens + (now - budget.t) * config.sendBudget / 1000);
     budget.t = now;
     if (budget.tokens >= 1) { budget.tokens -= 1; return true; }
     context.set('throttled', (context.get('throttled') || 0) + 1);

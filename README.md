@@ -35,8 +35,8 @@ Positions run **counter-clockwise viewed from above** on every tier (verified wi
 | blue-dominant | **starfield** | candle = WLED colour as background; random 1–3 zones flash white with random offsets |
 | any other colour | **flame** | base→tip gradient (dim/saturated base, bright/lighter tip) + flicker across the 5×6 zones |
 
-Matrix modes use `Set64` (one message paints a whole candle) and share a **hard cap of 250
-messages/s** (`matrixBudget`). See *Airtime* below — don't raise it casually.
+Matrix modes use `Set64` (one message paints a whole candle). **All** colour messages, in every
+mode, share a **hard cap of 250 messages/s** (`sendBudget`). See *Airtime* below — don't raise it casually.
 
 ## WLED presets
 
@@ -63,7 +63,7 @@ On 2026-11-23, ~300+ `Set64` msgs/s for several minutes wedged the 2.4 GHz radio
 Omada EAP787 (fw 1.5.6) — every 2.4 GHz client went dark until the AP was rebooted.
 Measured: starfield at ~267 msgs/s raised 2.4 GHz utilisation 22% → 32% and recovered;
 "rising streak" sparkles (~310–340 msgs/s) preceded the failure and were dropped.
-Keep `matrixBudget` ≤ 250 and send from the wired Node-RED host.
+Keep `sendBudget` ≤ 250 and send from the wired Node-RED host.
 
 ## Files
 
