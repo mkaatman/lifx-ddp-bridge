@@ -110,7 +110,8 @@ const config = {
         spread: 0.3,    // random start offset per zone (s) -> flashes may or may not overlap
         hold: 0.05,     // seconds at full white
         fade: 0.35,     // seconds to fade back
-        fps: 20,        // max repaint rate per busy candle
+        fps: 20,        // max repaint rate per busy candle at k=1
+        slowFps: 6,     // at k=0 (bulb's own transition smooths between repaints)
         flashKelvin: 6500,
     },
     // pixel = index in the DDP stream; mac = LIFX target id; ip = last known (auto-updated)
@@ -291,6 +292,7 @@ function renderStarfield() {
     const rate = SF.slowRate + (SF.rate - SF.slowRate) * k;
     const hold = SF.slowHold + (SF.hold - SF.slowHold) * k;
     const fade = SF.slowFade + (SF.fade - SF.slowFade) * k;
+    const fps = SF.slowFps + (SF.fps - SF.slowFps) * k;
     const mats = state.filter(s => s.matrix && s.color && !s.g.released);
     if (!mats.length) return;
     if (!nextEvent) nextEvent = now;
@@ -304,7 +306,7 @@ function renderStarfield() {
     }
     for (const s of mats) {
         if (!s.sparks.length && !s.sfDirty) continue;
-        if (now - s.sfLast < 1 / SF.fps) continue;
+        if (now - s.sfLast < 1 / fps) continue;
         if (!take()) continue;
         const [h, sat, v] = hsv(...s.color);
         const n = s.matrix[0] * s.matrix[1];
@@ -317,7 +319,7 @@ function renderStarfield() {
         const colors = lv.map(l => [Math.round(h / 360 * 65536) % 65536, Math.round(clamp(sat * (1 - l)) * 65535),
                                     Math.round(clamp(v + (1 - v) * l) * 65535),
                                     Math.round(config.kelvin + (SF.flashKelvin - config.kelvin) * l)]);
-        out(s, set64(s, colors, Math.round(1000 / SF.fps)));
+        out(s, set64(s, colors, Math.round(1000 / fps)));
         context.set('sent', (context.get('sent') || 0) + 1);
         s.sfDirty = alive.length > 0;
         s.sfLast = now;
