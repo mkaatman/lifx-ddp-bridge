@@ -32,7 +32,7 @@ Positions run **counter-clockwise viewed from above** on every tier (verified wi
 | Control pixel | Mode | What the candles do |
 |---|---|---|
 | black / segment off | **solid** | one colour per candle (`SetColor`), ≤20 msgs/s per bulb |
-| blue-dominant | **starfield** | candle = WLED colour as background; random 1–3 zones flash white with random offsets |
+| blue-dominant | **starfield** | candle = WLED colour as background; random 1–3 zones flash white with random offsets. Speed k = 1 − green/blue (after WLED gamma): `(0,0,255)` fast, `(0,225,255)` ≈ slow & twinkly |
 | any other colour | **flame** | base→tip gradient (dim/saturated base, bright/lighter tip) + flicker across the 5×6 zones |
 
 Matrix modes use `Set64` (one message paints a whole candle). **All** colour messages, in every

@@ -100,7 +100,12 @@ const config = {
         baseLevel: 0.40,// base row brightness relative to the brightest row
     },
     starfield: {        // background = WLED colour per candle; random zones flash white
-        rate: 20,       // flash events per second (chandelier-wide)
+        // speed k (0..1) comes from the control pixel: k = 1 - green/blue.
+        //   pure blue (0,0,255) => k=1 fast;  (0,180,255) => k~0.3 slow & twinkly
+        rate: 20,       // flash events/sec at k=1 (chandelier-wide)
+        slowRate: 3,    // flash events/sec at k=0
+        slowHold: 0.15, // hold at k=0
+        slowFade: 1.3,  // fade at k=0 (long, gentle twinkle)
         minZones: 1, maxZones: 3,   // zones per event
         spread: 0.3,    // random start offset per zone (s) -> flashes may or may not overlap
         hold: 0.05,     // seconds at full white
@@ -272,16 +277,20 @@ for (const s of state) if (s.matrix) {
     s.sparks = []; s.sfLast = 0; s.sfDirty = true;
 }
 let nextEvent = 0;
-function env(t) {
+function env(t, hold, fade) {
     if (t < 0) return 0;
-    if (t < SF.hold) return 1;
-    t -= SF.hold;
-    return t < SF.fade ? Math.pow(1 - t / SF.fade, 2) : 0;
+    if (t < hold) return 1;
+    t -= hold;
+    return t < fade ? Math.pow(1 - t / fade, 2) : 0;
 }
 function renderStarfield() {
     if (context.get('mode') !== 'starfield') { nextEvent = 0; return; }
     if (Date.now() - (context.get('lastFrame') || 0) > 5000) return;      // stream stopped
     const now = Date.now() / 1000;
+    const k = Math.min(1, Math.max(0, context.get('sfK') ?? 1));
+    const rate = SF.slowRate + (SF.rate - SF.slowRate) * k;
+    const hold = SF.slowHold + (SF.hold - SF.slowHold) * k;
+    const fade = SF.slowFade + (SF.fade - SF.slowFade) * k;
     const mats = state.filter(s => s.matrix && s.color && !s.g.released);
     if (!mats.length) return;
     if (!nextEvent) nextEvent = now;
@@ -291,7 +300,7 @@ function renderStarfield() {
             const s = mats[Math.floor(Math.random() * mats.length)];
             s.sparks.push([s.zones[Math.floor(Math.random() * s.zones.length)], nextEvent + Math.random() * SF.spread]);
         }
-        nextEvent += -Math.log(1 - Math.random()) / SF.rate;
+        nextEvent += -Math.log(1 - Math.random()) / rate;
     }
     for (const s of mats) {
         if (!s.sparks.length && !s.sfDirty) continue;
@@ -301,8 +310,8 @@ function renderStarfield() {
         const n = s.matrix[0] * s.matrix[1];
         const lv = new Array(n).fill(0), alive = [];
         for (const [z, st] of s.sparks) {
-            lv[z] = Math.max(lv[z], env(now - st));
-            if (now - st < SF.hold + SF.fade) alive.push([z, st]);
+            lv[z] = Math.max(lv[z], env(now - st, hold, fade));
+            if (now - st < hold + fade) alive.push([z, st]);
         }
         s.sparks = alive;
         const colors = lv.map(l => [Math.round(h / 360 * 65536) % 65536, Math.round(clamp(sat * (1 - l)) * 65535),
@@ -357,6 +366,7 @@ context.set('lastFrame', now);
 // Mode: control pixel lit => flame mode for matrix bulbs
 const cp = get(config.controlPixel);
 const mode = isBlack(cp) ? 'solid' : (cp[2] > cp[0] && cp[2] > cp[1] ? 'starfield' : 'flame');
+if (mode === 'starfield') context.set('sfK', 1 - cp[1] / cp[2]);     // green/blue ratio = speed
 if (mode !== context.get('mode')) {
     context.set('mode', mode);
     state.forEach(s => { if (s.matrix) { s.sparks = []; s.sfDirty = true; } });
