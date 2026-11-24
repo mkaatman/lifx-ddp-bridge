@@ -1,0 +1,405 @@
+{
+ "note": "Source of truth keyed by MAC. Positions verified 2026-11-23 (rainbow test): pos1..N run counter-clockwise viewed from above on every tier. LIFX target = wifi MAC - 1.",
+ "bulbs": [
+  {
+   "ha_name": "Tier1Bulb1",
+   "entity_id": "light.tier1bulb2",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:b4:41",
+   "tier": 1,
+   "pos": 1,
+   "ip": "192.168.2.92",
+   "target": "d0:73:d5:d3:b4:40",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3B440",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier1Bulb2",
+   "entity_id": "light.tier1bulb3",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:d4:f3",
+   "tier": 1,
+   "pos": 2,
+   "ip": "192.168.2.91",
+   "target": "d0:73:d5:d3:d4:f2",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3D4F2",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier1Bulb3",
+   "entity_id": "light.tier1bulb1",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:58:d2:80",
+   "tier": 1,
+   "pos": 3,
+   "ip": "192.168.2.95",
+   "target": "d0:73:d5:58:d2:7f",
+   "product": 68,
+   "fw": "3.90",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color 58D27F",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier2Bulb1",
+   "entity_id": "light.tier2bulb6",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:cd:7f",
+   "tier": 2,
+   "pos": 1,
+   "ip": "192.168.2.99",
+   "target": "d0:73:d5:d3:cd:7e",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3CD7E",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier2Bulb2",
+   "entity_id": "light.tier2bulb5",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:cc:81",
+   "tier": 2,
+   "pos": 2,
+   "ip": "192.168.2.111",
+   "target": "d0:73:d5:d3:cc:80",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3CC80",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier2Bulb3",
+   "entity_id": "light.tier2bulb4",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:d0:68",
+   "tier": 2,
+   "pos": 3,
+   "ip": "192.168.2.100",
+   "target": "d0:73:d5:d3:d0:67",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3D067",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier2Bulb4",
+   "entity_id": "light.tier2bulb2",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:c0:e4",
+   "tier": 2,
+   "pos": 4,
+   "ip": "192.168.2.110",
+   "target": "d0:73:d5:d3:c0:e3",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3C0E3",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier2Bulb5",
+   "entity_id": null,
+   "model": "LIFX Candle Color (replacement)",
+   "wifi_mac": "d0:73:d5:81:ec:08",
+   "tier": 2,
+   "pos": 5,
+   "ip": "192.168.2.97",
+   "target": "d0:73:d5:81:ec:07",
+   "verified": true,
+   "replaced": {
+    "old_wifi_mac": "d0:73:d5:d3:a2:d0",
+    "old_entity": "light.tier2bulb1",
+    "old_model": "LIFX Candle Color US"
+   },
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color 81EC07"
+  },
+  {
+   "ha_name": "Tier2Bulb6",
+   "entity_id": "light.tier2bulb3",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:d5:98",
+   "tier": 2,
+   "pos": 6,
+   "ip": "192.168.2.88",
+   "target": "d0:73:d5:d3:d5:97",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3D597",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb1",
+   "entity_id": "light.tier3bulb11",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d4:f9:9e",
+   "tier": 3,
+   "pos": 1,
+   "ip": "192.168.2.106",
+   "target": "d0:73:d5:d4:f9:9d",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D4F99D",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb2",
+   "entity_id": "light.tier3bulb10",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d4:f7:22",
+   "tier": 3,
+   "pos": 2,
+   "ip": "192.168.2.109",
+   "target": "d0:73:d5:d4:f7:21",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D4F721",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb3",
+   "entity_id": "light.tier3bulb6",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:81:ed:d1",
+   "tier": 3,
+   "pos": 3,
+   "ip": "192.168.2.113",
+   "target": "d0:73:d5:81:ed:d0",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color 81EDD0",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb4",
+   "entity_id": "light.tier3bulb8",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d5:00:83",
+   "tier": 3,
+   "pos": 4,
+   "ip": "192.168.2.98",
+   "target": "d0:73:d5:d5:00:82",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D50082",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb5",
+   "entity_id": "light.tier3bulb7",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d4:f8:6f",
+   "tier": 3,
+   "pos": 5,
+   "ip": "192.168.2.107",
+   "target": "d0:73:d5:d4:f8:6e",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D4F86E",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb6",
+   "entity_id": "light.tier3bulb9",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:81:ef:70",
+   "tier": 3,
+   "pos": 6,
+   "ip": "192.168.2.112",
+   "target": "d0:73:d5:81:ef:6f",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color 81EF6F",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb7",
+   "entity_id": "light.tier3bulb5",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:81:e3:47",
+   "tier": 3,
+   "pos": 7,
+   "ip": "192.168.2.90",
+   "target": "d0:73:d5:81:e3:46",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color 81E346",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb8",
+   "entity_id": "light.tier3bulb4",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:81:ea:fe",
+   "tier": 3,
+   "pos": 8,
+   "ip": "192.168.2.86",
+   "target": "d0:73:d5:81:ea:fd",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color 81EAFD",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb9",
+   "entity_id": "light.tier3bulb3",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:cf:92",
+   "tier": 3,
+   "pos": 9,
+   "ip": "192.168.2.94",
+   "target": "d0:73:d5:d3:cf:91",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3CF91",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb10",
+   "entity_id": "light.tier3bulb2",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:bb:85",
+   "tier": 3,
+   "pos": 10,
+   "ip": "192.168.2.89",
+   "target": "d0:73:d5:d3:bb:84",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3BB84",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb11",
+   "entity_id": "light.tier3bulb1",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:cc:90",
+   "tier": 3,
+   "pos": 11,
+   "ip": "192.168.2.96",
+   "target": "d0:73:d5:d3:cc:8f",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3CC8F",
+   "verified": true
+  },
+  {
+   "ha_name": "Tier3Bulb12",
+   "entity_id": "light.tier3bulb12",
+   "model": "LIFX Candle C",
+   "wifi_mac": "d0:73:d5:d3:b7:f9",
+   "tier": 3,
+   "pos": 12,
+   "ip": "192.168.2.85",
+   "target": "d0:73:d5:d3:b7:f8",
+   "product": 137,
+   "fw": "3.91",
+   "matrix": [
+    5,
+    6
+   ],
+   "lan_label": "LIFX Candle Color D3B7F8",
+   "verified": true
+  }
+ ],
+ "layout": {
+  "tier1": {
+   "where": "top",
+   "direction": "ccw viewed from above",
+   "verified": "2026-11-23"
+  },
+  "tier2": {
+   "where": "middle",
+   "direction": "ccw viewed from above",
+   "verified": "2026-11-23"
+  },
+  "tier3": {
+   "where": "bottom",
+   "direction": "ccw viewed from above",
+   "verified": "2026-11-23"
+  }
+ }
+}

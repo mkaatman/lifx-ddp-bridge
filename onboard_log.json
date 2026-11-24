@@ -1,0 +1,107 @@
+[
+ {
+  "when": "2026-11-23T16:44:51",
+  "setup_ssid": "LIFX Candle Color d3b7f8",
+  "target": "d0:73:d5:d3:b7:f8"
+ },
+ {
+  "when": "2026-11-23T16:46:18",
+  "setup_ssid": "LIFX Candle Color d3d597",
+  "target": "d0:73:d5:d3:d5:97"
+ },
+ {
+  "when": "2026-11-23T16:46:26",
+  "setup_ssid": "LIFX Candle Color 81eafd",
+  "target": "d0:73:d5:81:ea:fd"
+ },
+ {
+  "when": "2026-11-23T16:46:34",
+  "setup_ssid": "LIFX Candle Color d3bb84",
+  "target": "d0:73:d5:d3:bb:84"
+ },
+ {
+  "when": "2026-11-23T16:46:43",
+  "setup_ssid": "LIFX Candle Color 81e346",
+  "target": "d0:73:d5:81:e3:46"
+ },
+ {
+  "when": "2026-11-23T16:46:52",
+  "setup_ssid": "LIFX Candle Color d3d4f2",
+  "target": "d0:73:d5:d3:d4:f2"
+ },
+ {
+  "when": "2026-11-23T16:47:00",
+  "setup_ssid": "LIFX Candle Color d3b440",
+  "target": "d0:73:d5:d3:b4:40"
+ },
+ {
+  "when": "2026-11-23T16:47:09",
+  "setup_ssid": "LIFX Candle Color d3cf91",
+  "target": "d0:73:d5:d3:cf:91"
+ },
+ {
+  "when": "2026-11-23T16:47:24",
+  "setup_ssid": "LIFX Candle Color 58d27f",
+  "target": "d0:73:d5:58:d2:7f"
+ },
+ {
+  "when": "2026-11-23T16:47:33",
+  "setup_ssid": "LIFX Candle Color d3cc8f",
+  "target": "d0:73:d5:d3:cc:8f"
+ },
+ {
+  "when": "2026-11-23T16:47:47",
+  "setup_ssid": "LIFX Candle Color 81ec07",
+  "target": "d0:73:d5:81:ec:07"
+ },
+ {
+  "when": "2026-11-23T16:47:58",
+  "setup_ssid": "LIFX Candle Color d50082",
+  "target": "d0:73:d5:d5:00:82"
+ },
+ {
+  "when": "2026-11-23T16:48:06",
+  "setup_ssid": "LIFX Candle Color d3cd7e",
+  "target": "d0:73:d5:d3:cd:7e"
+ },
+ {
+  "when": "2026-11-23T16:48:15",
+  "setup_ssid": "LIFX Candle Color d3d067",
+  "target": "d0:73:d5:d3:d0:67"
+ },
+ {
+  "when": "2026-11-23T16:48:26",
+  "setup_ssid": "LIFX Candle Color d4f99d",
+  "target": "d0:73:d5:d4:f9:9d"
+ },
+ {
+  "when": "2026-11-23T16:48:40",
+  "setup_ssid": "LIFX Candle Color d4f86e",
+  "target": "d0:73:d5:d4:f8:6e"
+ },
+ {
+  "when": "2026-11-23T16:49:19",
+  "setup_ssid": "LIFX Candle Color d4f721",
+  "target": "d0:73:d5:d4:f7:21"
+ },
+ {
+  "when": "2026-11-23T16:49:29",
+  "setup_ssid": "LIFX Candle Color d3c0e3",
+  "target": "d0:73:d5:d3:c0:e3"
+ },
+ {
+  "when": "2026-11-23T16:49:52",
+  "setup_ssid": "LIFX Candle Color d3cc80",
+  "target": "d0:73:d5:d3:cc:80"
+ },
+ {
+  "when": "2026-11-23T16:50:00",
+  "setup_ssid": "LIFX Candle Color 81ef6f",
+  "target": "d0:73:d5:81:ef:6f"
+ },
+ {
+  "when": "2026-11-23T16:50:08",
+  "setup_ssid": "LIFX Candle Color 81edd0",
+  "target": "d0:73:d5:81:ed:d0"
+ }
+]
